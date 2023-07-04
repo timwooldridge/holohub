@@ -21,7 +21,7 @@ changed by the command menu display.
 
 To run the ProHawk Application/Operator for NVIDIA Holoscan, first build the Docker image using the provided DockerFile: e.g:
 a) sudo docker build -t <ex: prohawkop_holoscansdk:v051_test> .
-b) sudo docker run -it --rm --net host --runtime=nvidia -v /tmp/.X11-unix:/tmp/.X11-unix -v $nvidia_icd_json:$nvidia_icd_json:ro -e NVIDIA_DRIVER_CAPABILITIES=graphics,video,compute,utility,,display -e DISPLAY=$DISPLAY <newly create imgage>
+b) sudo docker run -it --rm --net host --runtime=nvidia -v /tmp/.X11-unix:/tmp/.X11-unix -v $nvidia_icd_json:$nvidia_icd_json:ro -e NVIDIA_DRIVER_CAPABILITIES=graphics,video,compute,utility,display -e DISPLAY=$DISPLAY <newly create imgage>
 c) cd /opt/nvidia/holoscan/examples/prohawk_video_replayer/cpp 
 d) ./prohawk_video_replayer
 
