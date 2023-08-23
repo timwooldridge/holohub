@@ -1,0 +1,52 @@
+// Main json definition for application or operator
+"application|operator": {
+	    // Explicit name of the contribution
+		"name": "prohawk_video_replayer",
+		// Author(s) of the contribution
+		"authors": [
+			{
+				"name": "Tim Wooldridge",
+				"affiliation": "Prohawk Technology Group"
+			}
+		],
+		// Supported language
+		// If multiple languages are supported, create a directory per language and a json file accordingly
+		"language": "C++|GXF",
+		// Version of the contribution
+		"version": "1.0.0",
+		// Change log
+		"changelog": {
+			"1.0": "Added watermark to the prohawk restoration engine"
+		},
+		// Holoscan SDK
+		"holoscan_sdk": {
+			// Minimum supported holoscan version
+			"minimum_required_version": "0.5.1",
+			// All versions of Holoscan SDK tested for this operator/application
+			"tested_versions": [
+				"0.5.1"
+			]
+		},
+		// Supported platforms
+		"platforms": ["arm64"],
+		// Free-form tags for referencing the contribution
+		"tags": ["Endoscopy", "Video Encoding"],
+		// Ranking of the contribution. See below for ranking meaning
+		"ranking": 4,
+		// Dependencies for the current contribution
+		"dependencies": {
+			"operators": [{
+				"name": "prohawkop | libholoscan_op_prohawkop.so",
+				"version": "1.0.0"
+			}
+		   ]
+		},
+		// Command to run/test the contribution. This is valid for applications.
+		// This command is used by the main run script to test the application/
+		// Use the <holohub_data_dir> for referencing the data directory
+		// "workdir" specifies the working directory and can be holohub_app_bin, holohub_app_source or holohub_bin
+		"run": {
+			"command": "./prohawk_video_replayer",
+			"workdir": "/workspace/holoscan-sdk/examples/prohawk_video_replayer/cpp"
+		}
+	}

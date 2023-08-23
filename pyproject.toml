@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-FileCopyrightText: Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +16,7 @@
 [tool.isort]
 profile = "black"
 line_length = 100
-known_first_party = "holohub"
+known_first_party = "holoscan"
 skip_glob = ["build*/*", "install*/*", ".cache/*"]
 
 [tool.black]
@@ -30,13 +30,12 @@ extend-exclude = '''
   ^.cache/*    # exclude .cache folder
   | ^build*/*  # exclude build folders
   | ^install*/*  # exclude install folders
-  | cmake/pybind11/*  # exclude the files under cmake/pybind11/
 )
 '''
 
 [tool.codespell]
 skip = "_deps,build*,.cache,html,_build,_static,generated,latex,install*,.git,xml,vale"
-ignore-words-list = "bu,dne,unexpect,activ"
+ignore-words-list = "bu,dne,unexpect"
 
 [tool.ruff]
 line-length = 103  # 103 to avoid E501 warnings from the copyright header
@@ -51,8 +50,7 @@ exclude = [
   "latex",
   "install*",
   ".git",
-  "xml",
-  "cmake/pybind11"
+  "xml"
 ]
 
 [tool.ruff.per-file-ignores]
@@ -60,4 +58,4 @@ exclude = [
 # "scripts/convert_video_to_gxf_entities.py" = ["E203"]
 
 [tool.ruff.isort]
-known-first-party = ["holohub"]
+known-first-party = ["holoscan"]

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-FileCopyrightText: Copyright (c) 2022-2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-add_holohub_extension(emergent_source)
-add_holohub_extension(lstm_tensor_rt_inference)
-add_holohub_extension(v4l2_video_capture)
-add_holohub_extension(videomaster)
+# For install_gxf_extension
+# TODO: move that function to its own CMake module/file
+include(GenerateGXEApp)
+
+list(APPEND CMAKE_INSTALL_RPATH_LIST
+    \$ORIGIN                                    # load lib${extension}_lib.so
+    \$ORIGIN/..                                 # load 3rd-party dependency libs
+    \$ORIGIN/../../../nvidia/cuda_runtime/lib   # for python wheels
+    \$ORIGIN/../../../tensorrt                  # for python wheels
+    )
+list(JOIN CMAKE_INSTALL_RPATH_LIST ":" CMAKE_INSTALL_RPATH)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib/gxf_extensions)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib/gxf_extensions)
+
+add_subdirectory(opengl)
+add_subdirectory(stream_playback)
+add_subdirectory(tensor_rt)
+add_subdirectory(v4l2)
+add_subdirectory(bayer_demosaic)
+add_subdirectory(gxf_holoscan_wrapper)
