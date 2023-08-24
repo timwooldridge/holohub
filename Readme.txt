@@ -21,10 +21,11 @@ To run the ProHawk Application/Operator for NVIDIA Holoscan, first build the Doc
 
 (Note: After executing the launch command (above), the docker container will be created and you will be promptd in the container build directory.)
 
-2d) cmake .. (from within the docker container build directory)
-2e) ./../prohawkop_setup.sh  - You will be prompted to answer installation locale question. Answer bsed on you locale.
-2f) make
-2g) make install
+2d) ./../prohawkop_setup1.sh
+2e) cmake .. (from within the docker container build directory)
+2f) ./../prohawkop_setup2.sh  - You will be prompted to answer installation locale question. Answer bsed on you locale.
+2g) make
+2h) make install
 
 After building the docker image and running/creating the docker container, the ProHawk Holoscan application and operator will be fully
 installed and ready for use.
